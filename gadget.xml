@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>Nepali Loadshedding Schedule</name>
+  <namespace>com.sagarpathak.widget.nepaliloadsheddingschedule</namespace>
+  <version>1.0.0.0</version>
+  <author>
+    <info url="sagarpathak.com.np" />
+    <logo src="logo.png" />
+  </author>
+  <copyright>Sagar Pathak</copyright>
+  <description>Window gadget for loadshedding Schedule of Nepal.</description>
+  <icons>
+    <icon width="64" height="64" src="icon.png" />
+  </icons>
+  <hosts>
+    <host name="sidebar">
+      <base type="HTML" apiVersion="1.0.0" src="main.html" />
+      <permissions>full</permissions>
+      <platform minPlatformVersion="0.3" />
+			<defaultImage src="icon.png" />
+    </host>
+  </hosts>
+</gadget>
