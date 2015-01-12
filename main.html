@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Nepali Loadshedding Schedule</title>
+		<style>
+			.container{
+				background-color: #2c87f0;
+				color: white;
+			}
+			.header{
+				background-color:green;
+				color:white;
+				text-align: center;
+				height: 30px;
+				vertical-align: middle;
+				line-height: 30px;
+			}
+			.schedule{
+				display:inline-block;
+				font-size:16pt;
+				padding-left:10px;
+				color:white;
+			}
+			.indicator{
+				display:inline-block;	
+				text-align:right;
+				margin:0;
+			}
+			.group{
+				font-size: 8pt;	
+				background-color: green;
+				height: 15px;
+				line-height:15px;
+				vertical-align: middle;
+				padding-left:10px;
+			}
+			body{
+				margin: 0;
+				padding:0;
+			  width:200px;
+				height:200px;
+			}
+		</style>
+		<script type="text/jscript" language="jscript">
+			System.Gadget.settingsUI = "settings.html";
+			var group = "Group - 1";
+			function init(){
+				var status="on";
+				var lightbulb = document.getElementById('lightbulb');
+				lightbulb.src = "images/bulb"+status+".jpg";
+				var scheduleGroup = document.getElementById("scheduleGroup");
+				if (System.Gadget.Settings.read("SettingExist") == true){
+					group = System.Gadget.Settings.read("scheduleGroup");
+				}
+				scheduleGroup.innerHTML = group;
+			}
+			System.Gadget.onSettingsClosed = function(event){
+				if(event.closeAction == event.Action.commit){
+					group = System.Gadget.Settings.read("scheduleGroup");
+					scheduleGroup.innerHTML = group;
+				}
+			}
+         
+		</script>
+	</head>
+	<body onload="init()">
+		<div class="container">
+			<div class="header">
+				Loadshedding Schedule
+			</div>
+			<div class="schedule-box">
+				<table cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td class="schedule">
+					04:00 - 08:00<br/>12:00 - 18:00
+				</td>
+						<td class="indicator">
+					<g:background id="lightbulb" style="width:50px;height:70px;"></g:background></td>
+					</tr>
+				</table>
+				<div class="group" id="scheduleGroup">
+						Group - 3
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
